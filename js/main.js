@@ -110,15 +110,22 @@ $(function() {
     function showDetail(id) {
         var result = availSearch.find(function(item) {
             return item.id == id;
-        })
-        var json = JSON.stringify(result);
+        });
+        // console.log(id);
+        // var json = JSON.stringify(result);
         
         // console.log('hasil = ' + result.id);
-        var load = "<img id=" +  result.id + " src=" + result.img + " alt= " + result.value + " class='img-responsive normal' />" +
+        
+        var load =  "<img id=" +  result.id + " src=" + result.img + " alt= " + result.value + " class='img-responsive normal' />" +
                     "<h1>" + result.value + "</h1>" +
                     "<p class='mb-40'>" + result.link + "</p>";
 
-        return $('#detail').append(load);
+        // if(load == null){
+        //     console.log(load);
+        //     $('#detail').append(load);
+        // }
+        console.log(load);
+        $('#detail').append(load);
     }
 
     $("#btn-search").click(function(){
@@ -137,13 +144,9 @@ $(function() {
         showDetail(id);
         // console.log("id = " + id);
         
-        $(this).modal({
-            fadeDuration: 1000,
-            fadeDelay: 0.50
-        });
+        // $('#detail').modal();
         // return false;
-    })
-
+    });
 
 });
 
